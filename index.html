@@ -3,379 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>정규분포 PDF · CDF 탐구</title>
-<style>
-  :root{
-    --pdf:#1f6feb; --pdf-fill:rgba(31,111,235,.28);
-    --cdf:#1f9d55; --point:#e3342f; --guide:#9aa4ad;
-    --ink:#1b1f24; --muted:#5b6670; --line:#d7dde3; --bg:#f5f7fa;
-  }
-  *{box-sizing:border-box;}
-  body{
-    margin:0; background:var(--bg); color:var(--ink);
-    font-family:"Pretendard","Malgun Gothic","맑은 고딕",system-ui,sans-serif;
-    -webkit-text-size-adjust:100%;
-  }
-  .wrap{max-width:780px; margin:0 auto; padding:18px 16px 40px;}
-  h1{font-size:20px; margin:6px 0 4px;}
-  .sub{color:var(--muted); font-size:13px; margin:0 0 16px;}
-  .controls{
-    display:flex; flex-wrap:wrap; gap:18px 26px; align-items:center;
-    background:#fff; border:1px solid var(--line); border-radius:12px;
-    padding:14px 18px; margin-bottom:14px;
-  }
-  .ctrl{display:flex; flex-direction:column; gap:4px;}
-  .ctrl label{font-size:13px; color:var(--muted);}
-  .ctrl .row{display:flex; align-items:center; gap:8px;}
-  .ctrl input[type=number]{
-    width:74px; font-size:17px; padding:6px 8px; text-align:center;
-    border:1px solid var(--line); border-radius:8px;
-  }
-  .ctrl input[type=range]{width:150px;}
-  .opts{margin-left:auto; display:flex; gap:14px; align-items:center;}
-  .opts label{font-size:13px; display:flex; gap:6px; align-items:center; cursor:pointer;}
-  button.reset{
-    font-size:13px; padding:7px 12px; border:1px solid var(--line);
-    background:#fff; border-radius:8px; cursor:pointer;
-  }
-  button.reset:hover{background:#eef1f5;}
-  .formula{
-    background:#fff; border:1px solid var(--line); border-radius:12px;
-    padding:14px 18px; margin-bottom:14px; text-align:center;
-    font-family:"Cambria Math","Times New Roman",serif;
-  }
-  .formula .main{
-    font-size:22px; display:inline-flex; align-items:center; gap:9px;
-    flex-wrap:wrap; justify-content:center;
-  }
-  .frac{display:inline-flex; flex-direction:column; text-align:center; vertical-align:middle; line-height:1.12;}
-  .frac .num{border-bottom:1.5px solid var(--ink); padding:0 8px;}
-  .frac .den{padding:2px 8px 0;}
-  .formula sup{font-size:.62em;}
-  .formula .vals{margin-top:11px; font-size:15px; color:var(--muted); font-variant-numeric:tabular-nums;}
-  .charts{
-    background:#fff; border:1px solid var(--line); border-radius:12px;
-    padding:8px 6px 4px; margin-bottom:14px;
-  }
-  canvas{width:100%; display:block; touch-action:none; cursor:crosshair;}
-  .read{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:10px;
-  }
-  .card{
-    background:#fff; border:1px solid var(--line); border-radius:12px;
-    padding:12px 14px; text-align:center;
-  }
-  .card .k{font-size:12px; color:var(--muted);}
-  .card .v{font-size:22px; font-weight:700; margin-top:3px; font-variant-numeric:tabular-nums;}
-  .card.prob .v{color:var(--pdf);}
-  .hint{font-size:12.5px; color:var(--muted); margin:12px 2px 0; line-height:1.6;}
-  @media(max-width:540px){
-    .read{grid-template-columns:repeat(2,1fr);}
-    .opts{margin-left:0; width:100%;}
-  }
-</style>
+<title>4차원 기하학 학습자료</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrap">
-  <h1>정규분포: 확률밀도함수와 누적분포함수</h1>
-  <p class="sub">위 <b>f(x)</b>의 색칠된 넓이가 곧 확률이고, 그 값이 아래 <b>F(x)</b>의 높이로 나타납니다. 그래프 위에서 점을 드래그해 보세요.</p>
+  <div class="page">
+    <header>
+      <span class="eyebrow">Study Materials</span>
+      <h1>4차원 기하학 학습자료</h1>
+      <p>고등학교 수학 수업에서 활용하는 4차원 도형·통계 시뮬레이터 모음입니다. 아래 자료를 클릭해 바로 열어보세요.</p>
+    </header>
 
-  <div class="controls">
-    <div class="ctrl">
-      <label>평균 μ</label>
-      <div class="row">
-        <input id="muNum" type="number" value="0" step="0.5">
-        <input id="muRange" type="range" min="-10" max="10" value="0" step="0.5">
-      </div>
+    <div class="grid">
+      <a class="card" href="normal-distribution.html">
+        <span class="tag stat">확률과 통계</span>
+        <h2>정규분포 PDF·CDF 탐구</h2>
+        <p>정규분포의 확률밀도함수와 누적분포함수를 직접 조작하며 탐구하는 자료입니다.</p>
+        <span class="go">자료 보기 →</span>
+      </a>
+
+      <a class="card" href="7월6일 하이퍼큐브_4차원_회전_시뮬레이터-챗지피티.html">
+        <span class="tag geo">4차원 기하</span>
+        <h2>4차원 하이퍼큐브 회전 시뮬레이터</h2>
+        <p>4차원 도형(테서렉트)이 4차원 공간에서 회전하는 모습을 시각화한 시뮬레이터입니다.</p>
+        <span class="go">자료 보기 →</span>
+      </a>
+
+      <a class="card" href="정8포체 조립 시뮬레이터4-제미나이.html">
+        <span class="tag geo">4차원 기하</span>
+        <h2>정8포체(테서렉트) 조립 시뮬레이터</h2>
+        <p>정8포체를 3차원 전개도에서 조립해보며 4차원 도형의 구조를 이해하는 시뮬레이터입니다.</p>
+        <span class="go">자료 보기 →</span>
+      </a>
     </div>
-    <div class="ctrl">
-      <label>표준편차 σ</label>
-      <div class="row">
-        <input id="sgNum" type="number" value="1" step="0.1" min="0.5">
-        <input id="sgRange" type="range" min="0.5" max="5" value="1" step="0.1">
-      </div>
-    </div>
-    <div class="opts">
-      <label><input id="tangent" type="checkbox"> CDF 접선 (f = F′)</label>
-      <button class="reset" id="reset">초기화</button>
-    </div>
+
+    <footer>4차원 기하학 · 학습자료 모음</footer>
   </div>
-
-  <div class="formula">
-    <div class="main">
-      <span>f(x) =</span>
-      <span class="frac"><span class="num">1</span><span class="den">σ√(2π)</span></span>
-      <span>e<sup>−(x−μ)²⁄(2σ²)</sup></span>
-    </div>
-    <div class="vals" id="formulaVals"></div>
-  </div>
-
-  <div class="charts">
-    <canvas id="pdf"></canvas>
-    <canvas id="cdf"></canvas>
-  </div>
-
-  <div class="read">
-    <div class="card"><div class="k">x</div><div class="v" id="vx">0.00</div></div>
-    <div class="card"><div class="k">z = (x−μ)/σ</div><div class="v" id="vz">0.00</div></div>
-    <div class="card"><div class="k">f(x) · 밀도</div><div class="v" id="vf">0.399</div></div>
-    <div class="card prob"><div class="k">P(X ≤ x)</div><div class="v" id="vp">0.500</div></div>
-  </div>
-
-  <p class="hint">
-    • <b>위 그래프(PDF)</b>를 클릭하거나 좌우로 드래그 → 왼쪽 넓이(확률)와 아래 F(x) 값이 함께 변합니다.<br>
-    • <b>아래 그래프(CDF)</b>의 점을 위아래로 드래그 → 높이(확률)가 바뀌고 위 그래프의 x와 넓이가 따라 변합니다.<br>
-    • 점선 눈금(μ±σ, μ±2σ, μ±3σ) 근처에서는 자동으로 달라붙습니다. (68 · 95 · 99.7 규칙 확인용)
-  </p>
-</div>
-
-<script>
-"use strict";
-
-/* ---------- 수학 ---------- */
-const SQRT2PI = Math.sqrt(2*Math.PI);
-function normPDF(x, mu, s){ const z=(x-mu)/s; return Math.exp(-0.5*z*z)/(s*SQRT2PI); }
-function erf(x){
-  const sign = x<0 ? -1 : 1; x = Math.abs(x);
-  const t = 1/(1+0.3275911*x);
-  const y = 1 - (((((1.061405429*t - 1.453152027)*t) + 1.421413741)*t - 0.284496736)*t + 0.254829592)*t*Math.exp(-x*x);
-  return sign*y;
-}
-function normCDF(x, mu, s){ return 0.5*(1 + erf((x-mu)/(s*Math.SQRT2))); }
-// 표준정규 역함수 (Acklam) → 분위수
-function normInvStd(p){
-  const a=[-3.969683028665376e+01,2.209460984245205e+02,-2.759285104469687e+02,1.383577518672690e+02,-3.066479806614716e+01,2.506628277459239e+00];
-  const b=[-5.447609879822406e+01,1.615858368580409e+02,-1.556989798598866e+02,6.680131188771972e+01,-1.328068155288572e+01];
-  const c=[-7.784894002430293e-03,-3.223964580411365e-01,-2.400758277161838e+00,-2.549732539343734e+00,4.374664141464968e+00,2.938163982698783e+00];
-  const d=[7.784695709041462e-03,3.224671290700398e-01,2.445134137142996e+00,3.754408661907416e+00];
-  const plow=0.02425, phigh=1-plow; let q,r;
-  if(p<plow){ q=Math.sqrt(-2*Math.log(p)); return (((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1); }
-  if(p<=phigh){ q=p-0.5; r=q*q; return (((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5])*q/(((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1); }
-  q=Math.sqrt(-2*Math.log(1-p)); return -(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);
-}
-function quantile(p, mu, s){ return mu + s*normInvStd(p); }
-const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
-
-/* ---------- 상태 ---------- */
-const state = { mu:0, sigma:1, x:0 };
-
-/* ---------- 캔버스 ---------- */
-const pdfC=document.getElementById('pdf'), cdfC=document.getElementById('cdf');
-const pdfX=pdfC.getContext('2d'), cdfX=cdfC.getContext('2d');
-let pdfGeo=null, cdfGeo=null;
-const M={L:58,R:16,T:20,B:34};
-const CH=240; // 각 캔버스 css 높이
-// 고정 좌표축: 0을 가운데로 x·y 범위를 고정 → 곡선의 위치·형태 변화만 보이게
-const XMIN=-15, XMAX=15, X_STEP=5, PDF_YMAX=0.85;
-
-function fit(c){
-  const dpr=window.devicePixelRatio||1;
-  const w=c.clientWidth;
-  c.style.height=CH+'px';
-  c.width=Math.round(w*dpr); c.height=Math.round(CH*dpr);
-  const ctx=c.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0);
-  return {w, h:CH};
-}
-
-function bounds(){
-  return { xmin:XMIN, xmax:XMAX };   // 고정
-}
-
-/* ---------- 렌더 ---------- */
-function render(){
-  drawPDF();
-  drawCDF();
-  updateReadout();
-}
-
-function axisCommon(ctx,w,h,xmin,xmax,X,labelX,sigLabels){
-  const {mu,sigma}=state;
-  // 축
-  ctx.strokeStyle='#c2cad2'; ctx.lineWidth=1;
-  ctx.beginPath();
-  ctx.moveTo(M.L, M.T); ctx.lineTo(M.L, h-M.B); ctx.lineTo(w-M.R, h-M.B); ctx.stroke();
-  // 고정 x축 눈금 (5단위) — 좌표 프레임은 변하지 않음
-  ctx.font='11px sans-serif'; ctx.textAlign='center';
-  for(let v=XMIN; v<=XMAX; v+=X_STEP){
-    const px=X(v);
-    ctx.strokeStyle = v===0 ? '#b6bdc6' : '#eef1f5';
-    ctx.beginPath(); ctx.moveTo(px,M.T); ctx.lineTo(px,h-M.B); ctx.stroke();
-    ctx.fillStyle='#5b6670'; ctx.fillText(String(v), px, h-M.B+15);
-  }
-  // 움직이는 σ 보조선 (μ, μ±σ, μ±2σ, μ±3σ) — 곡선과 함께 이동
-  for(let k=-3;k<=3;k++){
-    const xv=mu+k*sigma; if(xv<xmin||xv>xmax) continue;
-    const px=X(xv);
-    ctx.strokeStyle = k===0 ? 'rgba(31,111,235,.45)' : 'rgba(154,164,173,.6)';
-    ctx.setLineDash(k===0?[]:[3,4]);
-    ctx.beginPath(); ctx.moveTo(px,M.T); ctx.lineTo(px,h-M.B); ctx.stroke();
-    ctx.setLineDash([]);
-    if(sigLabels){
-      const lab = k===0 ? 'μ' : (k>0?`+${k}σ`:`−${-k}σ`);
-      ctx.fillStyle = k===0 ? '#1f6feb' : '#9aa4ad'; ctx.font='10px sans-serif';
-      ctx.fillText(lab, px, M.T+11);
-    }
-  }
-  ctx.textAlign='right'; ctx.fillStyle='#5b6670'; ctx.font='12px sans-serif';
-  ctx.fillText(labelX, w-M.R, h-6);
-}
-
-function drawPDF(){
-  const {w,h}=fit(pdfC); const ctx=pdfX; ctx.clearRect(0,0,w,h);
-  const {mu,sigma,x}=state; const {xmin,xmax}=bounds();
-  const ymax=PDF_YMAX;   // y축 고정 → σ가 커지면 곡선이 낮고 넓게 보임
-  const X=v=>M.L+(v-xmin)/(xmax-xmin)*(w-M.R-M.L);
-  const Y=v=>(h-M.B)-(v/ymax)*(h-M.B-M.T);
-  pdfGeo={X, pxToX:px=>xmin+(px-M.L)/(w-M.R-M.L)*(xmax-xmin), w,h};
-
-  axisCommon(ctx,w,h,xmin,xmax,X,'x',true);
-
-  // 색칠 (좌측 누적)
-  ctx.beginPath(); ctx.moveTo(X(xmin), h-M.B);
-  const xpx=X(x);
-  for(let px=M.L; px<=xpx; px++){ const xv=xmin+(px-M.L)/(w-M.R-M.L)*(xmax-xmin); ctx.lineTo(px, Y(normPDF(xv,mu,sigma))); }
-  ctx.lineTo(xpx, h-M.B); ctx.closePath();
-  ctx.fillStyle=getCSS('--pdf-fill'); ctx.fill();
-
-  // 곡선
-  ctx.beginPath();
-  for(let px=M.L; px<=w-M.R; px++){ const xv=xmin+(px-M.L)/(w-M.R-M.L)*(xmax-xmin); const py=Y(normPDF(xv,mu,sigma)); px===M.L?ctx.moveTo(px,py):ctx.lineTo(px,py); }
-  ctx.strokeStyle=getCSS('--pdf'); ctx.lineWidth=2.2; ctx.stroke();
-
-  // 세로 연결선 + 점
-  const fx=normPDF(x,mu,sigma);
-  ctx.strokeStyle=getCSS('--guide'); ctx.lineWidth=1.4; ctx.setLineDash([4,4]);
-  ctx.beginPath(); ctx.moveTo(xpx, M.T); ctx.lineTo(xpx, h-M.B); ctx.stroke(); ctx.setLineDash([]);
-  ctx.fillStyle=getCSS('--point'); ctx.beginPath(); ctx.arc(xpx, Y(fx), 5, 0, 7); ctx.fill();
-
-  // 확률값 라벨 (음영 위)
-  const p=normCDF(x,mu,sigma);
-  ctx.font='bold 13px sans-serif'; ctx.fillStyle=getCSS('--pdf'); ctx.textAlign='center';
-  let lx=clamp((M.L+xpx)/2, M.L+44, w-M.R-44);
-  ctx.fillText(`P(X≤x)=${p.toFixed(3)}`, lx, Y(0)-(h-M.B-M.T)*0.30);
-
-  // y축 라벨
-  ctx.save(); ctx.translate(16, (M.T+h-M.B)/2); ctx.rotate(-Math.PI/2);
-  ctx.textAlign='center'; ctx.fillStyle='#5b6670'; ctx.font='13px sans-serif'; ctx.fillText('f(x)',0,0); ctx.restore();
-}
-
-function drawCDF(){
-  const {w,h}=fit(cdfC); const ctx=cdfX; ctx.clearRect(0,0,w,h);
-  const {mu,sigma,x}=state; const {xmin,xmax}=bounds();
-  const X=v=>M.L+(v-xmin)/(xmax-xmin)*(w-M.R-M.L);
-  const Yp=p=>(h-M.B)-p*(h-M.B-M.T);          // p∈[0,1]
-  const pxToP=py=>clamp(((h-M.B)-py)/(h-M.B-M.T),0,1);
-  cdfGeo={X, Yp, pxToP, w,h};
-
-  axisCommon(ctx,w,h,xmin,xmax,X,'x',false);
-
-  // y축 0,0.5,1 눈금
-  ctx.strokeStyle='#eef1f5'; ctx.fillStyle='#9aa4ad'; ctx.font='11px sans-serif'; ctx.textAlign='right';
-  [0,0.5,1].forEach(p=>{ const py=Yp(p); ctx.beginPath(); ctx.moveTo(M.L,py); ctx.lineTo(w-M.R,py); ctx.stroke(); ctx.fillText(p.toFixed(1), M.L-6, py+4); });
-
-  // 곡선
-  ctx.beginPath();
-  for(let px=M.L; px<=w-M.R; px++){ const xv=xmin+(px-M.L)/(w-M.R-M.L)*(xmax-xmin); const py=Yp(normCDF(xv,mu,sigma)); px===M.L?ctx.moveTo(px,py):ctx.lineTo(px,py); }
-  ctx.strokeStyle=getCSS('--cdf'); ctx.lineWidth=2.2; ctx.stroke();
-
-  const p=normCDF(x,mu,sigma); const xpx=X(x), ypx=Yp(p);
-
-  // 접선 (옵션): 기울기 f(x)를 그대로 둔 채, 일정한 픽셀 길이의 곧은 선으로 그림
-  if(document.getElementById('tangent').checked){
-    const slope=normPDF(x,mu,sigma);             // dF/dx = f(x)
-    const sx=(w-M.R-M.L)/(xmax-xmin);            // px / (data-x)
-    const sy=(h-M.B-M.T);                        // px / (probability)
-    let dirx=sx, diry=-slope*sy;                 // 곡선 접선의 픽셀 방향
-    const len=Math.hypot(dirx,diry)||1; dirx/=len; diry/=len;
-    const L=62, cx=X(x), cy=Yp(p);
-    ctx.save();
-    ctx.beginPath(); ctx.rect(M.L,M.T,w-M.R-M.L,h-M.B-M.T); ctx.clip();   // 그래프 영역 밖은 잘라냄
-    ctx.strokeStyle='#e0982f'; ctx.lineWidth=2; ctx.setLineDash([6,4]);
-    ctx.beginPath(); ctx.moveTo(cx-dirx*L, cy-diry*L); ctx.lineTo(cx+dirx*L, cy+diry*L); ctx.stroke();
-    ctx.setLineDash([]); ctx.restore();
-  }
-
-  // 연결선: 세로(x) + 가로(확률 높이)
-  ctx.strokeStyle=getCSS('--guide'); ctx.lineWidth=1.4; ctx.setLineDash([4,4]);
-  ctx.beginPath(); ctx.moveTo(xpx, h-M.B); ctx.lineTo(xpx, ypx); ctx.lineTo(M.L, ypx); ctx.stroke();
-  ctx.setLineDash([]);
-  ctx.fillStyle=getCSS('--point'); ctx.beginPath(); ctx.arc(xpx,ypx,6,0,7); ctx.fill();
-  ctx.strokeStyle='#fff'; ctx.lineWidth=2; ctx.stroke();
-
-  // 라벨
-  ctx.fillStyle=getCSS('--cdf'); ctx.font='bold 13px sans-serif'; ctx.textAlign='left';
-  ctx.fillText(`F(x)=${p.toFixed(3)}`, clamp(xpx+10,M.L,w-M.R-90), clamp(ypx-10,M.T+12,h-M.B));
-
-  ctx.save(); ctx.translate(16,(M.T+h-M.B)/2); ctx.rotate(-Math.PI/2);
-  ctx.textAlign='center'; ctx.fillStyle='#5b6670'; ctx.font='13px sans-serif'; ctx.fillText('F(x) = P(X≤x)',0,0); ctx.restore();
-}
-
-function updateReadout(){
-  const {mu,sigma,x}=state;
-  document.getElementById('vx').textContent=x.toFixed(2);
-  document.getElementById('vz').textContent=((x-mu)/sigma).toFixed(2);
-  document.getElementById('vf').textContent=normPDF(x,mu,sigma).toFixed(3);
-  document.getElementById('vp').textContent=normCDF(x,mu,sigma).toFixed(3);
-  const coef=1/(sigma*SQRT2PI), twoSig2=2*sigma*sigma;
-  document.getElementById('formulaVals').textContent =
-    `μ=${mu}, σ=${sigma}  →  f(x) ≈ ${coef.toFixed(3)} · e^( −(x − ${mu.toFixed(1)})² ⁄ ${twoSig2.toFixed(2)} )`;
-}
-
-function getCSS(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
-
-/* ---------- 스냅 ---------- */
-function snapX(xv){
-  const {mu,sigma}=state; const {xmin,xmax}=bounds();
-  const w=pdfGeo? pdfGeo.w : pdfC.clientWidth;
-  const toPx=v=>M.L+(v-xmin)/(xmax-xmin)*(w-M.R-M.L);
-  const px=toPx(xv);
-  let best=xv, bestD=9;
-  for(let k=-3;k<=3;k++){ const t=mu+k*sigma; if(Math.abs(toPx(t)-px)<bestD){bestD=Math.abs(toPx(t)-px); best=t;} }
-  return best;
-}
-
-/* ---------- 상호작용 ---------- */
-function setXClamped(xv){ const {xmin,xmax}=bounds(); state.x=clamp(xv,xmin,xmax); render(); }
-
-function relPos(c,e){ const r=c.getBoundingClientRect(); return {x:e.clientX-r.left, y:e.clientY-r.top}; }
-
-let drag=null;
-function onPDF(e){ const {x}=relPos(pdfC,e); setXClamped(snapX(pdfGeo.pxToX(x))); }
-function onCDF(e){ const {y}=relPos(cdfC,e); const p=clamp(cdfGeo.pxToP(y),1e-4,1-1e-4); setXClamped(snapX(quantile(p,state.mu,state.sigma))); }
-
-function bindDrag(c, handler){
-  c.addEventListener('pointerdown', e=>{ drag=handler; c.setPointerCapture(e.pointerId); handler(e); e.preventDefault(); });
-  c.addEventListener('pointermove', e=>{ if(drag===handler) handler(e); });
-  const end=()=>{ if(drag===handler) drag=null; };
-  c.addEventListener('pointerup', end); c.addEventListener('pointercancel', end);
-}
-bindDrag(pdfC,onPDF); bindDrag(cdfC,onCDF);
-
-/* ---------- 파라미터 입력 ---------- */
-function setParams(mu,sigma){
-  sigma=Math.max(0.1,sigma);
-  const z=(state.x-state.mu)/state.sigma;   // z 유지
-  state.mu=mu; state.sigma=sigma;
-  const {xmin,xmax}=bounds();
-  state.x=clamp(mu+z*sigma, xmin, xmax);
-  syncInputs(); render();
-}
-function syncInputs(){
-  muNum.value=state.mu; muRange.value=clamp(state.mu,-10,10);
-  sgNum.value=state.sigma; sgRange.value=clamp(state.sigma,0.5,5);
-}
-const muNum=document.getElementById('muNum'), muRange=document.getElementById('muRange');
-const sgNum=document.getElementById('sgNum'), sgRange=document.getElementById('sgRange');
-muNum.addEventListener('input',()=>setParams(parseFloat(muNum.value)||0, state.sigma));
-muRange.addEventListener('input',()=>setParams(parseFloat(muRange.value), state.sigma));
-sgNum.addEventListener('input',()=>setParams(state.mu, parseFloat(sgNum.value)||1));
-sgRange.addEventListener('input',()=>setParams(state.mu, parseFloat(sgRange.value)));
-document.getElementById('tangent').addEventListener('change',render);
-document.getElementById('reset').addEventListener('click',()=>{ state.mu=0; state.sigma=1; state.x=0; syncInputs(); render(); });
-
-window.addEventListener('resize',render);
-syncInputs();
-render();
-</script>
 </body>
 </html>
